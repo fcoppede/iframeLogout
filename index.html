@@ -15,7 +15,7 @@
   if (window.location.search.includes('slo')) {
     try {
       console.log('sending logout!');
-      window.parent.postMessage("logout from child.anotherdomain.com", 'https://logout.common.com/logout');
+      window.parent.postMessage("logout from child.anotherdomain.com", 'http://localhost:3000');
     } catch (err) {
       console.log("Log out failed", err);
     }
