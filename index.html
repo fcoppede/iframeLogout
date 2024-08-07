@@ -16,6 +16,7 @@
   }
   const logout = () => {
     try {
+      console.log('sending logout!');
       window.parent.postMessage("logout from child.anotherdomain.com", 'https://logout.common.com/logout');
     } catch (err) {
       console.log("Log out failed", err);
