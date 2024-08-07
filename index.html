@@ -12,14 +12,18 @@
 </body>
 <script>
   window.onload = async () => {
-  if (window.location.search.includes('slo')) {
-    try {
-      console.log('sending logout to subscriber tabs');
-      window.parent.postMessage("SLO request", '*');
-    } catch (err) {
-      console.log("Log out failed", err);
-    }
-  }
-};
+    if (window.location.search.includes('slo')) {
+      var iframe = document.createElement('iframe');
+      iframe.src = 'http://localhost:3000?slo';
+      iframe.width = 0;
+      iframe.height = 0;
+      document.body.appendChild(iframe);
+    };
+
+    window.addEventListener("message", (event) => {
+      console.log(event);
+    }, false);
+  };
 </script>
+
 </html>
