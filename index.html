@@ -14,8 +14,8 @@
   window.onload = async () => {
   if (window.location.search.includes('slo')) {
     try {
-      console.log('sending logout!');
-      window.parent.postMessage("logout from child.anotherdomain.com", '*');
+      console.log('sending logout to subscriber tabs');
+      window.parent.postMessage("SLO request", '*');
     } catch (err) {
       console.log("Log out failed", err);
     }
