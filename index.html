@@ -11,6 +11,7 @@
 
 </body>
 <script>
+  window.onload = async () => {
   if (window.location.search.includes('slo')) {
     return logout();
   }
@@ -22,5 +23,6 @@
       console.log("Log out failed", err);
     }
   };
+};
 </script>
 </html>
