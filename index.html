@@ -8,21 +8,20 @@
 </head>
 
 <body>
-
+  <script src="https://cdn.auth0.com/js/auth0-spa-js/2.1/auth0-spa-js.production.js"></script>
 </body>
 <script>
   window.onload = async () => {
-    if (window.location.search.includes('slo')) {
-      var iframe = document.createElement('iframe');
-      iframe.src = 'http://localhost:3000?slo';
-      iframe.width = 0;
-      iframe.height = 0;
-      document.body.appendChild(iframe);
-    };
-
-    window.addEventListener("message", (event) => {
-      console.log(event.data);
-    }, false);
+    auth0Client = await auth0.createAuth0Client({
+      domain: 'fcoppede-auth0.us.auth0.com',
+      clientId: 'DVj4mPabJNh5Ipg7Ma3jDI2qhjI996Q5'
+    });
+    try {
+      const accessToken = await auth0.getTokenSilently();
+      console.log(accessToken);
+    } catch (err) {
+      console.log(err);
+    }
   };
 </script>
 
